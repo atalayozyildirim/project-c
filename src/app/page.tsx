@@ -31,7 +31,7 @@ export default function Home() {
         const response = await axios.get(
           "https://beta.tripkolic.com/api/v1/product/task/tours"
         );
-        setTours(response?.data?.products);
+        setTours((response?.data as { products: Tour[] }).products);
       } catch (error) {
         console.error("Error fetching tours:", error);
       }
